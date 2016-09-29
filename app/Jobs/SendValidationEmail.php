@@ -1,13 +1,13 @@
 <?php
 
-namespace Sigma\Jobs;
+namespace Custom\Jobs;
 
-use Sigma\Jobs\Job;
+use Custom\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Sigma\Models\Security\User;
+use Custom\Models\Security\User;
 
 
 class SendValidationEmail extends Job implements SelfHandling, ShouldQueue

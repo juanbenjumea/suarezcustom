@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Http\Middleware;
+namespace Custom\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

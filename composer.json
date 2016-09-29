@@ -1,6 +1,6 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "Custom",
+    "description": "",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
@@ -24,7 +24,7 @@
             "database"
         ],
         "psr-4": {
-            "Sigma\\": "app/"
+            "Custom\\": "app/"
         }
     },
     "autoload-dev": {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Http;
+namespace Custom\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -12,11 +12,11 @@ class Kernel extends HttpKernel{
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \Sigma\Http\Middleware\EncryptCookies::class,
+        \Custom\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        // \Sigma\Http\Middleware\VerifyCsrfToken::class,
+        // \Custom\Http\Middleware\VerifyCsrfToken::class,
     ];
 
     /**
@@ -25,10 +25,10 @@ class Kernel extends HttpKernel{
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Sigma\Http\Middleware\Authenticate::class,
+        'auth' => \Custom\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \Sigma\Http\Middleware\RedirectIfAuthenticated::class,
-        'security' => \Sigma\Http\Middleware\SecurityValidation::class,
+        'guest' => \Custom\Http\Middleware\RedirectIfAuthenticated::class,
+        'security' => \Custom\Http\Middleware\SecurityValidation::class,
         'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
         'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
     ];

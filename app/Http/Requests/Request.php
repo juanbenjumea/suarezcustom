@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Http\Requests;
+namespace Custom\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

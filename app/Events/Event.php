@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Events;
+namespace Custom\Events;
 
 abstract class Event
 {

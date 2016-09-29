@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Http\Middleware;
+namespace Custom\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

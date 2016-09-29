@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Models\Security;
+namespace Custom\Models\Security;
 
 use Illuminate\Database\Eloquent\Model;
 

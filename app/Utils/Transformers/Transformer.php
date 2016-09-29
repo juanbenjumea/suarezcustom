@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Utils\Transformers;
+namespace Custom\Utils\Transformers;
 
 abstract class Transformer
 {

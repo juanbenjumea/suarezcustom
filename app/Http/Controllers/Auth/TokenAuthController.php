@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Sigma\Http\Controllers\Auth;
+namespace Custom\Http\Controllers\Auth;
 
 
-use Sigma\Http\Controllers\ApiController;
+use Custom\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
-use Sigma\Utils\Transformers\UserTransformer;
+use Custom\Utils\Transformers\UserTransformer;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 

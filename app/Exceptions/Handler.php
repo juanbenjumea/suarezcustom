@@ -1,13 +1,13 @@
 <?php
 
-namespace Sigma\Exceptions;
+namespace Custom\Exceptions;
 
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Response as IlluResponse;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use Sigma\Utils\Helpers\ResponseHelper;
+use Custom\Utils\Helpers\ResponseHelper;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Tymon\JWTAuth\Exceptions\JWTException;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Sigma\Http\Controllers;
+namespace Custom\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Sigma\Http\Requests;
-use Sigma\Models\Security\User;
-use Sigma\Utils\Transformers\UserTransformer;
+use Custom\Http\Requests;
+use Custom\Models\Security\User;
+use Custom\Utils\Transformers\UserTransformer;
 
 
 class UsersController extends ApiController {

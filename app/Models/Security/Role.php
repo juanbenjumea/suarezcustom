@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Models\Security;
+namespace Custom\Models\Security;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +16,6 @@ class Role extends Model
 	public $timestamps = false;
 
     public function menu(){
-		return $this->belongsToMany('Sigma\Models\Security\Option','co_sec_role_menu')->withPivot('option_root');;
+		return $this->belongsToMany('Custom\Models\Security\Option','co_sec_role_menu')->withPivot('option_root');
 	}
 }

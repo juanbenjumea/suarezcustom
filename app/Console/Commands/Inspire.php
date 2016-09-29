@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Console\Commands;
+namespace Custom\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

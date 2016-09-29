@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Http\Controllers;
+namespace Custom\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Sigma\Http\Controllers;
+namespace Custom\Http\Controllers;
 
 
-use Sigma\Utils\Helpers\ResponseHelper;
+use Custom\Utils\Helpers\ResponseHelper;
 
 class ApiController extends Controller {
     use ResponseHelper;

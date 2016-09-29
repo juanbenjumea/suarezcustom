@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Utils\Transformers;
+namespace Custom\Utils\Transformers;
 
 class UserTransformer extends Transformer
 {

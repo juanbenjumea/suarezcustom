@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(Sigma\User::class, function ($faker) {
+$factory->define(Custom\User::class, function ($faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Models\Security;
+namespace Custom\Models\Security;
 
 
 use Illuminate\Auth\Authenticatable;
@@ -37,6 +37,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $hidden = ['password', 'remember_token', 'activation_code'];
 
     public function roles(){
-        return $this->belongsToMany('Sigma\Models\Security\Role','co_sec_user_role_list');
+        return $this->belongsToMany('Custom\Models\Security\Role','co_sec_user_role_list');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Providers;
+namespace Custom\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

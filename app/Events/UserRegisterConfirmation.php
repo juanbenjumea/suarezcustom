@@ -1,8 +1,8 @@
 <?php
 
-namespace Sigma\Events;
+namespace Custom\Events;
 
-use Sigma\Events\Event;
+use Custom\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 

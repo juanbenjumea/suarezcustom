@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Utils\Helpers;
+namespace Custom\Utils\Helpers;
 
 use Illuminate\Http\Response as IlluResponse;
 use Illuminate\Support\Facades\Response;

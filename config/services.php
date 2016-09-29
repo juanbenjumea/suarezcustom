@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => Sigma\User::class,
+        'model'  => Custom\User::class,
         'key'    => '',
         'secret' => '',
     ],

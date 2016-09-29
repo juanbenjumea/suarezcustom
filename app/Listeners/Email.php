@@ -1,8 +1,8 @@
 <?php
 
-namespace Sigma\Listeners;
+namespace Custom\Listeners;
 
-use Sigma\Events\UserRegisterConfirmation;
+use Custom\Events\UserRegisterConfirmation;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

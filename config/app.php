@@ -138,9 +138,9 @@ return [
         /*
          * Application Service Providers...
          */
-        Sigma\Providers\AppServiceProvider::class,
-        Sigma\Providers\EventServiceProvider::class,
-        Sigma\Providers\RouteServiceProvider::class,
+        Custom\Providers\AppServiceProvider::class,
+        Custom\Providers\EventServiceProvider::class,
+        Custom\Providers\RouteServiceProvider::class,
 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,

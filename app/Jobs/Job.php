@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigma\Jobs;
+namespace Custom\Jobs;
 
 use Illuminate\Bus\Queueable;
 
