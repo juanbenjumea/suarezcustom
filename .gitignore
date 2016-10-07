@@ -1,6 +1,4 @@
-/bootstrap
 /public
-/storage
 /vendor
 /node_modules
 Homestead.yaml
