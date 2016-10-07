@@ -52,7 +52,7 @@ class CategoryController extends Controller
     {
         return Category::with(['translation'
                                 , 'header'
-                                , 'pruducts'
+                                , 'products'
                                 , 'products.translatation'
                                 , 'products.image'])
                         ->find($id);
