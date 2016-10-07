@@ -18,14 +18,6 @@ class Sport extends Model
                     ->wherePivot('language_id', 1);
     }
 
-    public function name(){
-        return $this->translation->first()->pivot->name;
-    }
-
-    public function description(){
-        return $this->translation->first()->pivot->description;
-    }
-
     public function image(){
         return $this->belongsTo('\Custom\Models\Resource\File', 'file_image_id', 'id');
     }
@@ -34,7 +26,15 @@ class Sport extends Model
         return $this->belongsTo('\Custom\Models\Resource\File', 'file_icon_id', 'id');
     }
 
-    public function categories(){
-        return $this->belongsToMany('\Custom\Models\Product\Category', 'pr_sport_category');
+    public static function create($data)
+    {
+        // TODO Guillermo tirate es metodo de bacan pues....
     }
+
+    public function update($data)
+    {
+        // TODO Guillermo tirate es metodo de bacan pues....
+    }
+
+
 }
