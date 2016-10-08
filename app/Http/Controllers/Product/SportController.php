@@ -2,89 +2,49 @@
 
 namespace Custom\Http\Controllers\Product;
 
+use Custom\Http\Controllers\ApiController;
+use Custom\Utils\Transformers\SportTransformer;
 use Illuminate\Http\Request;
-
-use Custom\Http\Requests;
-use Custom\Http\Controllers\Controller;
 use Custom\Models\Product\Sport;
 
-class SportController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+class SportController extends ApiController {
+
+    protected $sportTransformer;
+
+    public function __construct(SportTransformer $sportTransformer)
+    {
+        $this->sportTransformer = $sportTransformer;
+        //$this->middleware('jwt.auth');
+    }
+
     public function index()
     {
-        return Sport::with(['translation', 'image', 'icon'])
-                    ->get();
+        $sports = Sport::with(['translation', 'image', 'icon'])->get();
+        return $this->respond([
+            'data' => $this->sportTransformer->transformCollection($sports->all())
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        return Sport::with(['translation', 'categories'])
-                    ->find($id);
+        $sport = Sport::with('translation', 'image', 'icon')->where('id', $id)->get();
+        return $this->respond([
+            'data' => $this->sportTransformer->transform($sport->first())
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function store(Request $request)
     {
-        //
+        Sport::create($request->all());
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        Sport::find($id)->update($request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        Sport::find($id)->delete();
     }
 }
