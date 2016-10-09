@@ -6,10 +6,15 @@ class SportTransformer extends Transformer {
 
     public function transform($sport)
     {
+        $defaultSportName = 'Sport Name';
+        $defaultSportDescription = 'Sport without description';
+        $name = @$sport['translation'][0]['pivot']['name'] ?: $defaultSportName;
+        $description = @$sport['translation'][0]['pivot']['description'] ?: $defaultSportDescription;
+
         return [
             'id'          => $sport['id'],
-            'name'        => $sport['translation'][0]['pivot']['name'],
-            'description' => $sport['translation'][0]['pivot']['description'],
+            'name'        => $name,
+            'description' => $description,
             'image'       => $sport['image']['name'],
             'icon'        => $sport['icon']['name']
         ];

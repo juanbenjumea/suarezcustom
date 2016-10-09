@@ -2,8 +2,9 @@
 
 //Route::group(['middleware' => 'auth'], function () {
 Route::group(['prefix' => 'api', 'middleware' => 'cors'], function () {
-    Route::resource('users', 'UsersController', ['except' => ['create', 'edit']]);
     Route::post('login','Auth\TokenAuthController@authenticate');
-    Route::resource('sport', 'Product\SportController');
+    Route::resource('sports', 'Sport\SportController');
+    Route::resource('sports.categories', 'Sport\SportCategoryController');
+    Route::resource('sports.categories.products', 'Sport\SportCategoryProductController');
 });
 
