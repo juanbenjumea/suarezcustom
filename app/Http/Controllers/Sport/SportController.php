@@ -1,6 +1,6 @@
 <?php
 
-namespace Custom\Http\Controllers\Product;
+namespace Custom\Http\Controllers\Sport;
 
 use Custom\Http\Controllers\ApiController;
 use Custom\Utils\Transformers\SportTransformer;
@@ -14,12 +14,12 @@ class SportController extends ApiController {
     public function __construct(SportTransformer $sportTransformer)
     {
         $this->sportTransformer = $sportTransformer;
-        //$this->middleware('jwt.auth');
     }
 
     public function index()
     {
         $sports = Sport::with(['translation', 'image', 'icon'])->get();
+
         return $this->respond([
             'data' => $this->sportTransformer->transformCollection($sports->all())
         ]);
@@ -28,6 +28,7 @@ class SportController extends ApiController {
     public function show($id)
     {
         $sport = Sport::with('translation', 'image', 'icon')->where('id', $id)->get();
+
         return $this->respond([
             'data' => $this->sportTransformer->transform($sport->first())
         ]);
