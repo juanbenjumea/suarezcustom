@@ -16,7 +16,7 @@ class Product extends Model {
     {
         return $this->belongsToMany('\Custom\Models\Internationalization\Language', 'pr_product_translation')
             ->withPivot('name', 'description')
-            ->wherePivot('language_id', 1);
+            ->wherePivot('language_id', session('lang'));
     }
 
     public function name()

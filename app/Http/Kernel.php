@@ -2,6 +2,7 @@
 
 namespace Custom\Http;
 
+
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel{
@@ -31,5 +32,6 @@ class Kernel extends HttpKernel{
         'security' => \Custom\Http\Middleware\SecurityValidation::class,
         'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
         'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
+        'lang' => \Custom\Http\Middleware\Internationalization::class,
     ];
 }
