@@ -6,8 +6,8 @@ class ProductTransformer extends Transformer {
 
     public function transform($product)
     {
-        $defaultProductName = 'Sport Name';
-        $defaultProductDescription = 'Sport without description';
+        $defaultProductName = 'Products Name';
+        $defaultProductDescription = 'Products without description';
         $name = @$product['translation'][0]['pivot']['name'] ?: $defaultProductName;
         $description = @$product['translation'][0]['pivot']['description'] ?: $defaultProductDescription;
 
