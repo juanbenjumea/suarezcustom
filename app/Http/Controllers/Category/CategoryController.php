@@ -1,36 +1,36 @@
 <?php
 
-namespace Custom\Http\Controllers\Sport;
+namespace Custom\Http\Controllers\Category;
 
 use Custom\Http\Controllers\ApiController;
-use Custom\Utils\Transformers\SportTransformer;
+use Custom\Utils\Transformers\CategoryTransformer;
 use Illuminate\Http\Request;
-use Custom\Models\Product\Sport;
+use Custom\Models\Product\Category;
 
-class SportController extends ApiController {
+class CategoryController extends ApiController {
 
     protected $sportTransformer;
 
-    public function __construct(SportTransformer $sportTransformer)
+    public function __construct(CategoryTransformer $categoryTransformer)
     {
-        $this->sportTransformer = $sportTransformer;
+        $this->categoryTransformer = $categoryTransformer;
     }
 
     public function index()
     {
-        $sports = Sport::with(['translation', 'image', 'icon'])->get();
+        $categories = Category::with(['translation', 'image', 'header'])->get();
 
         return $this->respond([
-            'data' => $this->sportTransformer->transformCollection($sports->all())
+            'data' => $this->categoryTransformer->transformCollection($categories->all())
         ]);
     }
 
     public function show($id)
     {
-        $sport = Sport::with('translation', 'image', 'icon')->where('id', $id)->get();
+        $category = Category::with('translation', 'image', 'header')->where('id', $id)->get();
 
         return $this->respond([
-            'data' => $this->sportTransformer->transform($sport->first())
+            'data' => $this->categoryTransformer->transform($category->first())
         ]);
     }
 

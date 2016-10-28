@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'okazo'),
+            'database'  => env('DB_DATABASE', 'suarezcl_custom'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'c8fr4ct4l'),
             'charset'   => 'utf8',

@@ -6,5 +6,6 @@ Route::group(['prefix' => 'api', 'middleware' => ['cors','lang']], function () {
     Route::resource('sports', 'Sport\SportController');
     Route::resource('sports.categories', 'Sport\SportCategoryController');
     Route::resource('sports.categories.products', 'Sport\SportCategoryProductController');
+    Route::resource('categories', 'Category\CategoryController');
 });
 
