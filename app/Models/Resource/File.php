@@ -10,5 +10,5 @@ class File extends Model
     use SoftDeletes;
     protected $table = 'co_rsc_file';
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-    protected $fillable = ['name'];
+    protected $fillable = ['url'];
 }

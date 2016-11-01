@@ -26,7 +26,7 @@ class Category extends Model {
 
     public function header()
     {
-        return $this->belongsTo('\Custom\Models\Resource\File', 'file_icon_id', 'id');
+        return $this->belongsTo('\Custom\Models\Resource\File', 'file_header_id', 'id');
     }
 
     public function products()

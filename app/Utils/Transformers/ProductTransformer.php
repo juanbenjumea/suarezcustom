@@ -14,7 +14,8 @@ class ProductTransformer extends Transformer {
         return [
             'id'          => $product['id'],
             'name'        => $name,
-            'description' => $description
+            'description' => $description,
+            'image'       => $product['image']['url'],
         ];
     }
 }

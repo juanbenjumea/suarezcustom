@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2016 a las 19:25:37
+-- Tiempo de generación: 28-10-2016 a las 23:33:23
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -32,14 +32,6 @@ CREATE TABLE IF NOT EXISTS `co_in_language` (
   `code` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `co_in_language`
---
-
-INSERT INTO `co_in_language` (`id`, `name`, `code`) VALUES
-(1, 'Español', 'es'),
-(2, 'English', 'en');
-
 -- --------------------------------------------------------
 
 --
@@ -48,11 +40,11 @@ INSERT INTO `co_in_language` (`id`, `name`, `code`) VALUES
 
 CREATE TABLE IF NOT EXISTS `co_rsc_file` (
 `id` int(10) unsigned NOT NULL,
-  `name` varchar(250) NOT NULL,
+  `url` varchar(250) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -166,13 +158,6 @@ CREATE TABLE IF NOT EXISTS `pr_category` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `pr_category`
---
-
-INSERT INTO `pr_category` (`id`, `file_image_id`, `file_header_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, NULL, NULL, '2016-09-29 00:00:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `pr_product` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -360,14 +345,7 @@ CREATE TABLE IF NOT EXISTS `pr_sport` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `pr_sport`
---
-
-INSERT INTO `pr_sport` (`id`, `file_image_id`, `file_icon_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, NULL, NULL, '2016-09-29 00:00:00', NULL, NULL);
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -392,14 +370,6 @@ CREATE TABLE IF NOT EXISTS `pr_sport_translation` (
   `name` varchar(250) NOT NULL,
   `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `pr_sport_translation`
---
-
-INSERT INTO `pr_sport_translation` (`sport_id`, `language_id`, `name`, `description`) VALUES
-(1, 1, 'Prueba', 'Descripción del producto'),
-(1, 2, 'Test', 'Product description');
 
 -- --------------------------------------------------------
 
@@ -660,7 +630,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `co_rsc_file`
 --
 ALTER TABLE `co_rsc_file`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `co_sec_menu_option`
 --
@@ -705,12 +675,12 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `pr_product`
 --
 ALTER TABLE `pr_product`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `pr_sport`
 --
 ALTER TABLE `pr_sport`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `pr_style`
 --

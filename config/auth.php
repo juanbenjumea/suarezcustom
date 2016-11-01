@@ -59,7 +59,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Sigma\Models\Security\User::class,
+            'model' => Custom\Models\Security\User::class,
         ],
         // 'users' => [
         //     'driver' => 'database',

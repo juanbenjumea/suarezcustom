@@ -63,7 +63,7 @@ return [
     | e.g. 'Acme\Entities\User'
     |
     */
-    'user' => 'Sigma\Models\Security\User',
+    'user' => 'Custom\Models\Security\User',
 
     /*
     |--------------------------------------------------------------------------

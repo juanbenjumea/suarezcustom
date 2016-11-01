@@ -1,7 +1,6 @@
 <?php
 
 namespace Custom\Http\Controllers\Sport;
-;
 
 use Custom\Http\Controllers\ApiController;
 use Custom\Models\Product\Category;
