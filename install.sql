@@ -1,21 +1,34 @@
--- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2016 a las 23:33:23
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
+DROP TABLE IF EXISTS `co_in_language`;
+DROP TABLE IF EXISTS `co_rsc_file`;
+DROP TABLE IF EXISTS `co_sec_permission_list`;
+DROP TABLE IF EXISTS `co_sec_resource`;
+DROP TABLE IF EXISTS `co_sec_role_menu`;
+DROP TABLE IF EXISTS `co_sec_user_role_list`;
+DROP TABLE IF EXISTS `pr_category_translation`;
+DROP TABLE IF EXISTS `pr_color`;
+DROP TABLE IF EXISTS `pr_feature_translation`;
+DROP TABLE IF EXISTS `pr_feature_value_translation`;
+DROP TABLE IF EXISTS `pr_piece_translation`;
+DROP TABLE IF EXISTS `pr_product_feature`;
+DROP TABLE IF EXISTS `pr_product_feature_value`;
+DROP TABLE IF EXISTS `pr_product_sport`;
+DROP TABLE IF EXISTS `pr_product_translation`;
+DROP TABLE IF EXISTS `pr_sport_category`;
+DROP TABLE IF EXISTS `pr_sport_translation`;
+DROP TABLE IF EXISTS `pr_style_translation`;
+DROP TABLE IF EXISTS `co_sec_operation`;
+DROP TABLE IF EXISTS `co_sec_menu_option`;
+DROP TABLE IF EXISTS `co_sec_role`;
+DROP TABLE IF EXISTS `co_sec_user`;
+DROP TABLE IF EXISTS `pr_piece`;
+DROP TABLE IF EXISTS `pr_variation_feature_value`;
+DROP TABLE IF EXISTS `pr_variation`;
+DROP TABLE IF EXISTS `pr_feature_value`;
+DROP TABLE IF EXISTS `pr_feature`;
+DROP TABLE IF EXISTS `pr_sport`;
+DROP TABLE IF EXISTS `pr_style`;
+DROP TABLE IF EXISTS `pr_product`;
+DROP TABLE IF EXISTS `pr_category`;
 --
 -- Base de datos: `suarezcl_custom`
 --
@@ -823,7 +836,3 @@ ADD CONSTRAINT `fk_pr_variation_pr_product1` FOREIGN KEY (`product_id`) REFERENC
 ALTER TABLE `pr_variation_feature_value`
 ADD CONSTRAINT `fk_pr_variation_feature_value_pr_feature_value1` FOREIGN KEY (`feature_value_id`) REFERENCES `pr_feature_value` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_pr_variation_feature_value_pr_variation1` FOREIGN KEY (`variation_id`) REFERENCES `pr_variation` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
