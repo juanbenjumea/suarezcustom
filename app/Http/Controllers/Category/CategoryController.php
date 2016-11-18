@@ -18,7 +18,7 @@ class CategoryController extends ApiController {
 
     public function index()
     {
-        $categories = Category::with(['translation', 'image', 'header'])->get();
+        $categories = Category::with(['translation', 'image'])->get();
 
         return $this->respond([
             'data' => $this->categoryTransformer->transformCollection($categories->all())
@@ -27,7 +27,7 @@ class CategoryController extends ApiController {
 
     public function show($id)
     {
-        $category = Category::with('translation', 'image', 'header')->where('id', $id)->get();
+        $category = Category::with('translation', 'icon')->where('id', $id)->get();
 
         return $this->respond([
             'data' => $this->categoryTransformer->transform($category->first())

@@ -836,3 +836,45 @@ ADD CONSTRAINT `fk_pr_variation_pr_product1` FOREIGN KEY (`product_id`) REFERENC
 ALTER TABLE `pr_variation_feature_value`
 ADD CONSTRAINT `fk_pr_variation_feature_value_pr_feature_value1` FOREIGN KEY (`feature_value_id`) REFERENCES `pr_feature_value` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_pr_variation_feature_value_pr_variation1` FOREIGN KEY (`variation_id`) REFERENCES `pr_variation` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+DROP TABLE pr_sport_category;
+ALTER TABLE `pr_category` DROP `file_image_id`;
+ALTER TABLE `pr_category` CHANGE `file_header_id` `file_icon_id` INT(10) UNSIGNED NULL DEFAULT NULL;
+
+CREATE TABLE IF NOT EXISTS `pr_line` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sport_id` INT UNSIGNED NOT NULL,
+  `category_id` INT UNSIGNED NOT NULL,
+  `file_image_id` INT UNSIGNED NULL,
+  `file_header_id` INT UNSIGNED NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NULL,
+  `deleted_at` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_pr_sport_line_pr_category1_idx` (`category_id` ASC),
+  INDEX `fk_pr_sport_line_pr_sport1_idx` (`sport_id` ASC),
+  CONSTRAINT `fk_pr_sport_line_pr_category1`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `pr_category` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pr_sport_line_pr_sport1`
+    FOREIGN KEY (`sport_id`)
+    REFERENCES `pr_sport` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pr_line_translation` (
+  `line_id` INT UNSIGNED NOT NULL,
+  `language_id` INT UNSIGNED NOT NULL,
+  `description` TEXT NOT NULL,
+  PRIMARY KEY (`line_id`, `language_id`),
+  INDEX `fk_pr_sport_line_translation_pr_line1_idx` (`line_id` ASC),
+  CONSTRAINT `fk_pr_sport_line_translation_pr_line1`
+    FOREIGN KEY (`line_id`)
+    REFERENCES `pr_line` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
