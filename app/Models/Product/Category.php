@@ -10,7 +10,7 @@ class Category extends Model {
     use SoftDeletes;
     protected $table = 'pr_category';
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-    protected $fillable = ['file_image_id', 'file_header_id'];
+    protected $fillable = ['file_icon_id'];
 
     public function translation()
     {
@@ -19,14 +19,9 @@ class Category extends Model {
             ->wherePivot('language_id', session('lang'));
     }
 
-    public function image()
+    public function icon()
     {
-        return $this->belongsTo('\Custom\Models\Resource\File', 'file_image_id', 'id');
-    }
-
-    public function header()
-    {
-        return $this->belongsTo('\Custom\Models\Resource\File', 'file_header_id', 'id');
+        return $this->belongsTo('\Custom\Models\Resource\File', 'file_icon_id', 'id');
     }
 
     public function products()
@@ -34,8 +29,8 @@ class Category extends Model {
         return $this->hasMany('\Custom\Models\Product\Product', 'category_id', 'id');
     }
 
-    public function sports()
+    public function lines()
     {
-        return $this->belongsToMany('\Custom\Models\Product\Sport', 'pr_sport_category');
+        return $this->hasMany('\Custom\Models\Product\Line', 'category_id', 'id');
     }
 }
