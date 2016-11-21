@@ -25,6 +25,8 @@ DROP TABLE IF EXISTS `pr_variation_feature_value`;
 DROP TABLE IF EXISTS `pr_variation`;
 DROP TABLE IF EXISTS `pr_feature_value`;
 DROP TABLE IF EXISTS `pr_feature`;
+DROP TABLE IF EXISTS `pr_line_translation`;
+DROP TABLE IF EXISTS `pr_line`;
 DROP TABLE IF EXISTS `pr_sport`;
 DROP TABLE IF EXISTS `pr_style`;
 DROP TABLE IF EXISTS `pr_product`;
