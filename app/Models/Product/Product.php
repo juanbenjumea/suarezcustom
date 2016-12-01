@@ -34,13 +34,8 @@ class Product extends Model {
         return $this->belongsTo('\Custom\Models\Resource\File', 'file_image_id', 'id');
     }
 
-    public function category()
+    public function lines()
     {
-        return $this->belongsTo('\Custom\Models\Product\Category', 'category_id', 'id');
-    }
-
-    public function sports()
-    {
-        return $this->belongsToMany('\Custom\Models\Product\Sport', 'pr_product_sport');
+        return $this->belongsToMany('\Custom\Models\Product\Line', 'pr_product_line');
     }
 }
