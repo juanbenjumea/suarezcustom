@@ -19,18 +19,18 @@ class Category extends Model {
             ->wherePivot('language_id', session('lang'));
     }
 
-    public function icon()
+    public function image()
     {
-        return $this->belongsTo('\Custom\Models\Resource\File', 'file_icon_id', 'id');
+        return $this->belongsTo('\Custom\Models\Resource\File', 'file_image_id', 'id');
+    }
+
+    public function header()
+    {
+        return $this->belongsTo('\Custom\Models\Resource\File', 'file_header_id', 'id');
     }
 
     public function products()
     {
         return $this->hasMany('\Custom\Models\Product\Product', 'category_id', 'id');
-    }
-
-    public function lines()
-    {
-        return $this->hasMany('\Custom\Models\Product\Line', 'category_id', 'id');
     }
 }

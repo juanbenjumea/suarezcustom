@@ -3,27 +3,27 @@
 namespace Custom\Http\Controllers\Sport;
 
 use Custom\Http\Controllers\ApiController;
-use Custom\Models\Product\Line;
-use Custom\Utils\Transformers\LineTransformer;
+use Custom\Models\Product\Category;
+use Custom\Utils\Transformers\CategoryTransformer;
 use Illuminate\Http\Request;
 
-class LineController extends ApiController {
+class LineCategoryController extends ApiController {
 
-    protected $lineTransformer;
+    protected $categoryTransformer;
 
-    public function __construct(LineTransformer $lineTransformer)
+    public function __construct(CategoryTransformer $categoryTransformer)
     {
-        $this->lineTransformer = $lineTransformer;
+        $this->categoryTransformer = $categoryTransformer;
     }
 
-    public function index($sportId)
+    public function index($lineId)
     {
-        $lines = Line::with('translation', 'image', 'header', 'categories')
-                        ->where('sport_id', $sportId)
-                        ->get();
+        $categories = Category::with('translation', 'image', 'header')
+                                ->where('line_id', $lineId)
+                                ->get();
 
         return $this->respond([
-            'data' => $this->lineTransformer->transformCollection($lines->all())
+            'data' => $this->categoryTransformer->transformCollection($categories->all())
         ]);
 
     }

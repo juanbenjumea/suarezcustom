@@ -16,7 +16,7 @@ class SportTransformer extends Transformer {
             'name'        => $name,
             'description' => $description,
             'image'       => $sport['image']['url'],
-            'icon'        => $sport['icon']['url']
+            'header'      => $sport['header']['url']
         ];
     }
 }

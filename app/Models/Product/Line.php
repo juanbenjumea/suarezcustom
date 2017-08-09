@@ -10,11 +10,12 @@ class Line extends Model {
     use SoftDeletes;
     protected $table = 'pr_line';
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-    protected $fillable = ['sport_id', 'category_id', 'file_image_id', 'file_header_id'];
+    protected $fillable = ['sport_id', 'file_image_id', 'file_header_id'];
 
     public function translation()
     {
         return $this->belongsToMany('\Custom\Models\Internationalization\Language', 'pr_line_translation')
+            ->withPivot('name')
             ->withPivot('description')
             ->wherePivot('language_id', session('lang'));
     }
@@ -24,9 +25,9 @@ class Line extends Model {
         return $this->belongsTo('\Custom\Models\Product\Sport', 'sport_id', 'id');
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo('\Custom\Models\Product\Category', 'category_id', 'id');
+        return $this->hasMany('\Custom\Models\Product\Category', 'line_id', 'id');
     }
 
     public function image()

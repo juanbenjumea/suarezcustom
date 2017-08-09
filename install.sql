@@ -880,3 +880,48 @@ CREATE TABLE IF NOT EXISTS `pr_line_translation` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+TRUNCATE TABLE `pr_line_translation`
+
+DROP TABLE pr_line_translation
+
+DROP TABLE pr_line
+
+CREATE TABLE IF NOT EXISTS `pr_line` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sport_id` INT UNSIGNED NOT NULL,
+  `file_image_id` INT UNSIGNED NULL,
+  `file_header_id` INT UNSIGNED NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NULL,
+  `deleted_at` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_pr_sport_line_pr_sport1_idx` (`sport_id` ASC),
+  CONSTRAINT `fk_pr_sport_line_pr_sport1`
+    FOREIGN KEY (`sport_id`)
+    REFERENCES `pr_sport` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pr_line_translation` (
+  `line_id` INT UNSIGNED NOT NULL,
+  `language_id` INT UNSIGNED NOT NULL,
+  `name` TEXT NOT NULL,
+  `description` TEXT NOT NULL,
+  PRIMARY KEY (`line_id`, `language_id`),
+  INDEX `fk_pr_sport_line_translation_pr_line1_idx` (`line_id` ASC),
+  CONSTRAINT `fk_pr_sport_line_translation_pr_line1`
+    FOREIGN KEY (`line_id`)
+    REFERENCES `pr_line` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+ALTER TABLE `pr_category` ADD `line_id` INT(10) UNSIGNED NOT NULL AFTER `id`, ADD INDEX (`line_id`) ;
+ALTER TABLE `pr_category` ADD FOREIGN KEY (`line_id`) REFERENCES `pr_line`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `pr_category` CHANGE `file_icon_id` `file_image_id` INT(10) UNSIGNED NOT NULL;
+ALTER TABLE `pr_category` ADD `file_header_id` INT(10) UNSIGNED NOT NULL AFTER `file_image_id`;
+
+ALTER TABLE `pr_sport` CHANGE `file_icon_id` `file_header_id` INT(10) UNSIGNED NULL DEFAULT NULL;
+ALTER TABLE `pr_sport` CHANGE `file_image_id` `file_image_id` INT(10) UNSIGNED NOT NULL, CHANGE `file_header_id` `file_header_id` INT(10) UNSIGNED NOT NULL;

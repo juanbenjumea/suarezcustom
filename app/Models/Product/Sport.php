@@ -24,9 +24,9 @@ class Sport extends Model {
         return $this->belongsTo('\Custom\Models\Resource\File', 'file_image_id', 'id');
     }
 
-    public function icon()
+    public function header()
     {
-        return $this->belongsTo('\Custom\Models\Resource\File', 'file_icon_id', 'id');
+        return $this->belongsTo('\Custom\Models\Resource\File', 'file_header_id', 'id');
     }
 
     public static function create(array $attributes = [])

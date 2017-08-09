@@ -17,9 +17,8 @@ class LineTransformer extends Transformer {
             'description' => $description,
             'image'       => $line['image']['url'],
             'header'      => $line['header']['url'],
-            'icon'        => $line['category']['icon']['url'],
-            'category'    => $line['category'],
-            'sport'    => $line['sport']
+            'categories'  => $line['categories'],
+            'sport'       => $line['sport']
         ];
     }
 }
