@@ -1,12 +1,12 @@
 <?php
 
-namespace Custom\Http\Controllers\Sport;
+namespace Custom\Http\Controllers\Line;
 
 use Custom\Http\Controllers\ApiController;
 use Custom\Models\Product\Product;
 use Custom\Utils\Transformers\ProductTransformer;
 
-class SportCategoryProductController extends ApiController {
+class LineProductController extends ApiController {
 
     protected $productTransformer;
 
@@ -15,16 +15,18 @@ class SportCategoryProductController extends ApiController {
         $this->productTransformer = $productTransformer;
     }
 
-    public function index($sportId, $categoryId)
+    public function index($lineId)
     {
-        $products = Product::with('translation')->where('category_id', $categoryId)->whereHas('sports', function ($query) use ($sportId)
+        $products = Product::with('translation')->whereHas('lines', function ($query) use ($lineId)
         {
-            $query->where('sport_id', $sportId);
+            $query->where('line_id', $lineId);
         })->get();
+
 
         return $this->respond([
             'data' => $this->productTransformer->transformCollection($products->all())
         ]);
+
 
     }
 }
