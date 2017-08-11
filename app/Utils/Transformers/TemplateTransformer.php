@@ -2,22 +2,18 @@
 
 namespace Custom\Utils\Transformers;
 
-class CategoryTransformer extends Transformer {
+class TemplateTransformer extends Transformer {
 
-    public function transform($category)
+    public function transform($template)
     {
-        $defaultCategoryName = 'Category Name';
-        $defaultCategoryDescription = 'Category without description';
-        $name = @$category['translation'][0]['pivot']['name'] ?: $defaultCategoryName;
-        $description = @$category['translation'][0]['pivot']['description'] ?: $defaultCategoryDescription;
+        $defaultTemplateName = 'Template Name';
+        $name = @$template['translation'][0]['pivot']['name'] ?: $defaultTemplateName;
 
         return [
-            'id'          => $category['id'],
+            'id'          => $template['id'],
             'name'        => $name,
-            'description' => $description,
-            'image'       => $category['image']['url'],
-            'header'      => $category['header']['url'],
-            'lines'       => $category['lines']
+            'pdf'         => $template['pdf']['url'],
+            'preview'     => $template['preview']['url'],
         ];
     }
 }

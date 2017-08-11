@@ -3,30 +3,24 @@
 namespace Custom\Http\Controllers\Line;
 
 use Custom\Http\Controllers\ApiController;
-use Custom\Models\Product\Product;
-use Custom\Utils\Transformers\ProductTransformer;
+use Custom\Models\Product\Line;
+use Custom\Utils\Transformers\LineTransformer;
 
-class LineProductController extends ApiController {
+class LineController extends ApiController {
 
-    protected $productTransformer;
+    protected $lineTransformer;
 
-    public function __construct(ProductTransformer $productTransformer)
+    public function __construct(LineTransformer $lineTransformer)
     {
-        $this->productTransformer = $productTransformer;
+        $this->lineTransformer = $lineTransformer;
     }
 
-    public function index($lineId)
+    public function show($id)
     {
-        $products = Product::with('translation')->whereHas('lines', function ($query) use ($lineId)
-        {
-            $query->where('line_id', $lineId);
-        })->get();
-
+        $line = Line::with('translation', 'categories', 'image', 'header')->where('id', $id)->get();
 
         return $this->respond([
-            'data' => $this->productTransformer->transformCollection($products->all())
+            'data' => $this->lineTransformer->transform($line->first())
         ]);
-
-
     }
 }

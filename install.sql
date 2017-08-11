@@ -622,3 +622,65 @@ ALTER TABLE `pr_category` ADD `file_header_id` INT(10) UNSIGNED NOT NULL AFTER `
 
 ALTER TABLE `pr_sport` CHANGE `file_icon_id` `file_header_id` INT(10) UNSIGNED NULL DEFAULT NULL;
 ALTER TABLE `pr_sport` CHANGE `file_image_id` `file_image_id` INT(10) UNSIGNED NOT NULL, CHANGE `file_header_id` `file_header_id` INT(10) UNSIGNED NOT NULL;
+
+
+CREATE TABLE IF NOT EXISTS `pr_template` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `category_id` INT UNSIGNED NOT NULL,
+  `file_pdf_id` INT UNSIGNED NOT NULL,
+  `file_preview_id` INT UNSIGNED NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NULL,
+  `deleted_at` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_pr_template_pr_category1_idx` (`category_id` ASC),
+  CONSTRAINT `fk_pr_template_pr_category1`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `pr_category` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pr_template_translation` (
+  `template_id` INT UNSIGNED NOT NULL,
+  `language_id` INT UNSIGNED NOT NULL,
+  `name` VARCHAR(150) NOT NULL,
+  INDEX `fk_pr_template_translate_pr_template1_idx` (`template_id` ASC),
+  PRIMARY KEY (`language_id`, `template_id`),
+  CONSTRAINT `fk_pr_template_translate_pr_template1`
+    FOREIGN KEY (`template_id`)
+    REFERENCES `pr_template` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pr_design` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pr_design_translation` (
+  `design_id` INT UNSIGNED NOT NULL,
+  `language_id` INT UNSIGNED NOT NULL,
+  `name` VARCHAR(145) NOT NULL,
+  PRIMARY KEY (`language_id`, `design_id`),
+  INDEX `fk_pr_design_translation_pr_design1_idx` (`design_id` ASC),
+  CONSTRAINT `fk_pr_design_translation_pr_design1`
+    FOREIGN KEY (`design_id`)
+    REFERENCES `pr_design` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pr_design_images` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `design_id` INT UNSIGNED NOT NULL,
+  `file_id` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_pr_design_images_pr_design1_idx` (`design_id` ASC),
+  CONSTRAINT `fk_pr_design_images_pr_design1`
+    FOREIGN KEY (`design_id`)
+    REFERENCES `pr_design` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;

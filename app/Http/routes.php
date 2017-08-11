@@ -9,7 +9,8 @@ Route::group(['prefix' => 'api', 'middleware' => ['cors','lang']], function () {
     Route::resource('sports.categories', 'Sport\SportCategoryController');
     Route::resource('sports.categories.products', 'Sport\SportCategoryProductController');
     Route::resource('categories', 'Category\CategoryController');
-    Route::resource('lines', 'Sport\LineController');
+    Route::resource('lines', 'Line\LineController');
     Route::resource('lines.categories', 'Sport\LineCategoryController');
+    Route::resource('categories.templates', 'Category\CategoryTemplateController');
 });
 
