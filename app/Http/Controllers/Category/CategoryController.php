@@ -27,7 +27,7 @@ class CategoryController extends ApiController {
 
     public function show($id)
     {
-        $category = Category::with('translation', 'icon')->where('id', $id)->get();
+        $category = Category::with('translation', 'header')->where('id', $id)->get();
 
         return $this->respond([
             'data' => $this->categoryTransformer->transform($category->first())

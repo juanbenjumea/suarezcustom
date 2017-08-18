@@ -684,3 +684,7 @@ CREATE TABLE IF NOT EXISTS `pr_design_images` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+ALTER TABLE `pr_sport` ADD `file_name_id` INT(10) UNSIGNED NOT NULL AFTER `file_header_id`;
+ALTER TABLE `pr_line` ADD `file_name_id` INT(10) UNSIGNED NOT NULL AFTER `file_header_id`;
+ALTER TABLE `pr_category` ADD `file_name_id` INT(10) UNSIGNED NOT NULL AFTER `file_header_id`;

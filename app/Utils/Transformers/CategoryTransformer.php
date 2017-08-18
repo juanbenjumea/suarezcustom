@@ -17,6 +17,7 @@ class CategoryTransformer extends Transformer {
             'description' => $description,
             'image'       => $category['image']['url'],
             'header'      => $category['header']['url'],
+            'image_name'  => $category['name']['url'],
             'lines'       => $category['lines']
         ];
     }

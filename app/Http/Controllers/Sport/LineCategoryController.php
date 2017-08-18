@@ -18,7 +18,7 @@ class LineCategoryController extends ApiController {
 
     public function index($lineId)
     {
-        $categories = Category::with('translation', 'image', 'header')
+        $categories = Category::with('translation', 'image', 'header', 'name')
                                 ->where('line_id', $lineId)
                                 ->get();
 

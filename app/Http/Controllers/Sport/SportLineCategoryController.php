@@ -16,9 +16,9 @@ class SportLineCategoryController extends ApiController {
         $this->categoryTransformer = $categoryTransformer;
     }
 
-    public function index($lineId)
+    public function index($sportId, $lineId)
     {
-        $categories = Category::with('translation', 'image', 'header')
+        $categories = Category::with('translation', 'image', 'header', 'name')
                                 ->where('line_id', $lineId)
                                 ->get();
 

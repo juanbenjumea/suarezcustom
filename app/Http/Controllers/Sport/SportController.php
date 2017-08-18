@@ -18,7 +18,7 @@ class SportController extends ApiController {
 
     public function index()
     {
-        $sports = Sport::with(['translation', 'image', 'header'])->get();
+        $sports = Sport::with(['translation', 'image', 'header', 'name'])->get();
 
         return $this->respond([
             'data' => $this->sportTransformer->transformCollection($sports->all())
@@ -27,7 +27,7 @@ class SportController extends ApiController {
 
     public function show($id)
     {
-        $sport = Sport::with('translation', 'image', 'header')->where('id', $id)->get();
+        $sport = Sport::with('translation', 'image', 'header', 'name')->where('id', $id)->get();
 
         return $this->respond([
             'data' => $this->sportTransformer->transform($sport->first())

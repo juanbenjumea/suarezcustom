@@ -17,7 +17,9 @@ class LineController extends ApiController {
 
     public function show($id)
     {
-        $line = Line::with('translation', 'categories', 'image', 'header')->where('id', $id)->get();
+        $line = Line::with('translation', 'categories', 'image', 'header', 'name')
+                    ->where('id', $id)
+                    ->get();
 
         return $this->respond([
             'data' => $this->lineTransformer->transform($line->first())
