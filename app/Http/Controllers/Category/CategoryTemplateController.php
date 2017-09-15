@@ -16,9 +16,11 @@ class CategoryTemplateController extends ApiController {
         $this->templateTransformer = $templateTransformer;
     }
 
-    public function index()
+    public function index($categoryId)
     {
-        $templates = Template::with(['translation', 'pdf', 'preview'])->get();
+        $templates = Template::with(['translation', 'pdf', 'preview'])
+                            ->where('category_id', $categoryId)
+                            ->get();
 
         return $this->respond([
             'data' => $this->templateTransformer->transformCollection($templates->all())

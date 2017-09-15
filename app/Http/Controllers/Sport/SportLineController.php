@@ -18,7 +18,7 @@ class SportLineController extends ApiController {
 
     public function index($sportId)
     {
-        $lines = Line::with('translation', 'image', 'header', 'name', 'sport', 'categories.image', 'categories.header', 'categories.name')
+        $lines = Line::with('translation', 'image', 'header', 'name', 'sport.name', 'categories.image', 'categories.header', 'categories.name')
                         ->where('sport_id', $sportId)
                         ->get();
 
