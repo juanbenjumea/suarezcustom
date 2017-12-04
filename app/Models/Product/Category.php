@@ -18,6 +18,11 @@ class Category extends Model {
             ->withPivot('name', 'description')
             ->wherePivot('language_id', session('lang'));
     }
+    
+    public function line()
+    {
+        return $this->belongsTo('\Custom\Models\Product\Line', 'line_id', 'id');
+    }
 
     public function image()
     {
